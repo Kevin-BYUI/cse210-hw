@@ -7,9 +7,9 @@ class Program
         
 
       {
-         // Ask the user for the magic number
-        Console.Write("What is the magic number? ");
-        int magicNumber = int.Parse(Console.ReadLine());
+         // Generate a random magic number between 1 and 100
+        Random random = new Random();
+        int magicNumber = random.Next(1, 101);
         
         int guess = -1; // Initialize guess with a value that won't match the magic number
         
@@ -33,7 +33,6 @@ class Program
             {
                 Console.WriteLine("You guessed it!");
             }
-
         }
 
         
