@@ -14,7 +14,7 @@ class Program
             Console.WriteLine("3. Save the journal to a file");
             Console.WriteLine("4. Load the journal from a file");
             Console.WriteLine("5. Exit");
-            Console.WriteLine("Choose an option:");
+            Console.Write("Choose an option:");
 
             string choice = Console.ReadLine();
 

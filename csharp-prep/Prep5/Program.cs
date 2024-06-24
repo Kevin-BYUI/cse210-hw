@@ -1,51 +1,52 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.ExceptionServices;
 
 
 
 class Program
 {
+    
     static void Main(string[] args)
     {
-        DisplayWelcomeMessage();
+        string proceed;
+        do
+        {
+            PlayGame();
+            Console.Write("Would you like to play again? (YES/NO): ");
+            proceed = Console.ReadLine().ToUpper();
+        } while (proceed == "YES");
 
-        string userName = PromptUserName();
-        int userNumber = PromptUserNumber();
+        Console.WriteLine("Thank you for playing! See you next time.");
 
-        int squaredNumber = SquareNumber(userNumber);
-
-        DisplayResult(userName, squaredNumber);
     }
-
-    static void DisplayWelcomeMessage()
+    static void PlayGame()
     {
-        Console.WriteLine("Welcome to the program!");
-    }
-
-    static string PromptUserName()
-    {
-        Console.Write("Please enter your name: ");
-        string name = Console.ReadLine();
-
-        return name;
-    }
-
-    static int PromptUserNumber()
-    {
-        Console.Write("Please enter your favorite number: ");
-        int number = int.Parse(Console.ReadLine());
-
-        return number;
-    }
-
-    static int SquareNumber(int number)
-    {
-        int square = number * number;
-        return square;
-    }
-
-    static void DisplayResult(string name, int square)
-    {
-        Console.WriteLine($"{name}, the square of your number is {square}");
+        int guess = -1;
+        Random random = new Random();
+        int correctNumber = random.Next(1, 11);
+        int guessCount = 0;
+        while (guess != correctNumber)
+        {
+            guessCount += 1;
+            Console.Write("Enter a number between 1 and 10: ");
+            guess = int.Parse(Console.ReadLine());
+            if (guess < correctNumber)
+            {
+                Console.WriteLine("Lower! Try again");
+            } 
+            else if (guess > correctNumber)
+            {
+                Console.WriteLine("Higher! Try agai");
+            }
+            else
+            {
+                Console.WriteLine("Congratulations! You guessed it");
+                Console.WriteLine($"It took you {guessCount} guesses");
+            }     
+        }
+        
     }
 }
-    
+   
+        

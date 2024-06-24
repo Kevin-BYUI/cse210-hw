@@ -1,48 +1,52 @@
 using System;
+using System.Collections.Specialized;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.Runtime.ExceptionServices;
+using System.Security.Cryptography.X509Certificates;
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        Console.Write("Enter your grade percentage: ");
-        string userInput = Console.ReadLine();
-        int grade = int.Parse(userInput);
-
-        string letter = "";
-
-        if (grade >= 90)
+        Person person = new Person
         {
-            letter = "A";
-        }
-        else if (grade >= 80)
-        {
-            letter = "B";
-        }
-        else if (grade >= 70)
-        {
-            letter = "C";
-        }
-        else if (grade >= 60)
-        {
-            letter = "D";
-        }
-        else if (grade < 60)
-        {
-            letter = "F";
-        }
-        Console.WriteLine($"Your grade is {letter}");
-        if (grade >= 70)
-        {
-            Console.WriteLine("Congratulations! You passed the course");
-        }
-        else
-        {
-            Console.WriteLine("Sorry, you did not pass, work hard next time");
-        }
+            _firstName = "Kevin",
+            _lastName = "Ogutu",
+        };
+        person.ShowKenyaWay();
+        person.ShowAmericaWay();
 
+        Home home = new Home
+        {
+            _floorHeight = 60,
+            _floorWidth = 50,
+        };
+        double floorArea = home.ShowArea();
+        Console.WriteLine($"The area of the floor is {floorArea} m^2");
 
-
-
-
-    }
-}
+        Office office = new Office
+        {
+            _area = new Home
+            {
+                _floorHeight = 43,
+                _floorWidth = 25,
+            },
+            _officeOwner = "Kevin Ogutu",
+            _kenyanStyle = new Person
+            {
+                _firstName = "Kevin",
+                _lastName = "Ogutu",
+            }
+        };
+        Console.WriteLine($"Office owner: {office._officeOwner}");
+        Console.WriteLine($"Office area: {office._area.ShowArea()} m^2");
+        office._kenyanStyle.ShowKenyaWay();
+        
+    }    
+    
+   
+}   
+            
+        
+        
