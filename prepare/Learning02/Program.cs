@@ -1,4 +1,7 @@
 using System;
+using System.Text.Json.Serialization;
+using System.IO;
+using System.Collections.Generic;
 
 class Program
 {
@@ -26,8 +29,21 @@ class Program
         };
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
-        myResume.DisplayResumeDetails();
+        WriteToFile(myResume);     
+    }
+    public static void WriteToFile(Resume myResume)
+    {
+        Console.WriteLine("Writing to file.....");
+        string nameOfFile = "jobs.txt";
+        using (StreamWriter outputJob = new StreamWriter(nameOfFile))
+        {
+            outputJob.WriteLine("Job I have done:");
+            foreach (Job j in myResume._jobs)
+            {
+                outputJob.WriteLine(j._companyName);
+            }
+        }
 
-        
+
     }
 }
