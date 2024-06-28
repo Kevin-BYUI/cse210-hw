@@ -1,17 +1,15 @@
 public class Person
 {
-    public string _firstName;
-    public string _lastName;
+    public string _givenName;
+    public string _familyName;
     public Person()
+    {}
+    public void ShowWesternName()
     {
-
+        Console.WriteLine($"{_givenName}, {_familyName}");      
     }
-    public void ShowKenyaWay()
+    public void ShowEaternName()
     {
-        Console.WriteLine($"{_lastName} {_firstName}");
-    }
-    public void ShowAmericaWay()
-    {
-        Console.WriteLine($"{_firstName} {_lastName}");
+        Console.WriteLine($"{_familyName}, {_givenName}");
     }
 }

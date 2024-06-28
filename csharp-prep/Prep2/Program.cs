@@ -2,6 +2,7 @@ using System;
 using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
 using System.Security.Cryptography.X509Certificates;
 
@@ -9,44 +10,30 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Person person = new Person
+        Blind kitchen = new Blind
         {
-            _firstName = "Kevin",
-            _lastName = "Ogutu",
+            _color = "yellow",
+            _height = 20,
+            _width = 30,
         };
-        person.ShowKenyaWay();
-        person.ShowAmericaWay();
+        Blind livingRoom = new Blind
+        {
+            _height = 23,
+            _width = 50,
+        };
+        Blind livingHouse=new Blind
+        {
+            _height = 45,
+            _width = 21,
+        };
 
-        Home home = new Home
-        {
-            _floorHeight = 60,
-            _floorWidth = 50,
-        };
-        double floorArea = home.ShowArea();
-        Console.WriteLine($"The area of the floor is {floorArea} m^2");
+        House kevinsHouse = new House();
+        kevinsHouse._blinds.Add(kitchen);
+        kevinsHouse._blinds.Add(livingHouse);
+        kevinsHouse._blinds.Add(livingRoom);
 
-        Office office = new Office
-        {
-            _area = new Home
-            {
-                _floorHeight = 43,
-                _floorWidth = 25,
-            },
-            _officeOwner = "Kevin Ogutu",
-            _kenyanStyle = new Person
-            {
-                _firstName = "Kevin",
-                _lastName = "Ogutu",
-            }
-        };
-        Console.WriteLine($"Office owner: {office._officeOwner}");
-        Console.WriteLine($"Office area: {office._area.ShowArea()} m^2");
-        office._kenyanStyle.ShowKenyaWay();
-        
-    }    
+        Console.WriteLine($"Kevin's living room area is {kevinsHouse._blinds[2].GetArea()}");     
+    }
     
-   
-}   
-            
-        
+}
         
