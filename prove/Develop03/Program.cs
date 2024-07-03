@@ -16,10 +16,10 @@ class Program
             if (input.ToLower() == "quit")
                 break;
 
-            scripture.HideRandomWords(3); // Hide 3 random words
+            scripture.HideRandomWords(1); // Hide 1 random word
         }
 
         Console.Clear();
-        Console.WriteLine("All words are hidden. Well done!");
+        
     }
 }
