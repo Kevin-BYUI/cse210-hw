@@ -245,7 +245,7 @@ public class GoalManager
         foreach (string frame in animationFrames)
         {
             
-            Console.WriteLine(message + frame);
+            Console.WriteLine(frame);
             Thread.Sleep(500); // Adjust delay for animation speed
         }
 
