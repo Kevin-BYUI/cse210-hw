@@ -2,8 +2,8 @@ public class Swimming : Activity
 {
     private int _numberOfLaps;
 
-    public Swimming(string date, int activityDurationInMinutes, int numberOfLaps):
-    base (date, activityDurationInMinutes)
+    public Swimming(string date, int activityDurationInMinute, int numberOfLaps):
+    base (date, activityDurationInMinute)
     {
         _numberOfLaps = numberOfLaps;
     }

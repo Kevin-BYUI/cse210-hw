@@ -3,8 +3,8 @@ public class Running : Activity
     
     private float _distanceInKm;
 
-    public Running(string date, int activityDurationInMinutes, float distanceInKm):
-    base (date, activityDurationInMinutes)
+    public Running(string date, int activityDurationInMinute, float distanceInKm):
+    base (date, activityDurationInMinute)
     {
         _distanceInKm = distanceInKm;
     }

@@ -1,11 +1,11 @@
 public abstract class Activity
 {
     private string _date;
-    private int _activityDurationInMinutes;
+    private int _activityDurationInMinute;
 
     public Activity(string date, int activityDuration)
     {
-        _activityDurationInMinutes = activityDuration;
+        _activityDurationInMinute = activityDuration;
         _date = date;
     }
 
@@ -16,7 +16,7 @@ public abstract class Activity
 
     public float GetActivityDurationInMinutes()
     {
-        return _activityDurationInMinutes;
+        return _activityDurationInMinute;
     }
 
     public abstract string GetActivityName();

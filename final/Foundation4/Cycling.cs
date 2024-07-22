@@ -2,8 +2,8 @@ public class Cycling : Activity
 {
     private float _speed;
 
-    public Cycling(string date, int activityDurationInMinutes, float speed):
-    base (date, activityDurationInMinutes)
+    public Cycling(string date, int activityDurationInMinute, float speed):
+    base (date, activityDurationInMinute)
     {
         _speed = speed;
     }
